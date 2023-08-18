@@ -22,4 +22,9 @@ public class DemoController {
 	String test3() {
 		return "test3";
 	}
+	
+	@GetMapping
+	String test4() {
+		return "test4";
+	}
 }

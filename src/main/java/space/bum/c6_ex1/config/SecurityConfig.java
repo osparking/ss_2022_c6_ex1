@@ -18,8 +18,8 @@ public class SecurityConfig {
 		return http.httpBasic()
 				.and()
 				.authorizeRequests()
+				  .mvcMatchers("/demo/test2").hasAuthority("read")
 					.mvcMatchers("/demo/**").authenticated()
-					.mvcMatchers("/test2").hasAuthority("read")
 				.and().build();
 	}
 	
