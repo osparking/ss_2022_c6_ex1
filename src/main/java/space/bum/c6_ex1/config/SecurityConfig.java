@@ -21,6 +21,7 @@ public class SecurityConfig {
 				.authorizeRequests()
 					.mvcMatchers(HttpMethod.GET, "/demo/**").hasAuthority("read")
 					.anyRequest().authenticated().and()
+					.csrf().disable() // don't do this for production
 				.build();
 	}
 	// @formatter:on
