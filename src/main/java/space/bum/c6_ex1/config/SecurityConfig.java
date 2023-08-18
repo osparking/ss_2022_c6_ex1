@@ -19,8 +19,10 @@ public class SecurityConfig {
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.httpBasic().and()
 				.authorizeRequests()
-					.mvcMatchers(HttpMethod.GET, "/demo/**").hasAuthority("read")
-					.anyRequest().authenticated().and()
+//					.mvcMatchers(HttpMethod.GET, "/demo/**").hasAuthority("read")
+//				.anyRequest().authenticated().and()
+					.antMatchers("/test/test1", "/test/test1/").authenticated()
+					.anyRequest().permitAll().and()
 					.csrf().disable() // don't do this for production
 				.build();
 	}
